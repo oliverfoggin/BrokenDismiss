@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct BrokenDismissApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	var body: some Scene {
+		WindowGroup {
+			ContentView(store: .init(initialState: .init()) { AppFeature()._printChanges() })
+		}
+	}
 }
